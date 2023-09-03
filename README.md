@@ -9,18 +9,21 @@ Diet planning tool
 
 ## Installation
 
-See [the instructions here](https://gist.github.com/wesselb/4b44bf87f3789425f96e26c4308d0adc).
-Then simply
+1. Clone and enter the repo.
 
-```
-pip install diet
-```
+    ```bash
+    git clone https://github.com/wesselb/diet
+    cd diet
+    ```
+
+2. Make a virtual environment and install the package.
+
+    ```bash
+    virtualenv -p python3 venv
+    source venv/bin/activate
+    pip install  -e '.[dev]'
+    ```
 
 ## Basic Usage
 
-Like so:
-
-```python
->>> print('Hello, world!')
-Hello, world!
-```
+See the [documentation](https://wesselb.github.io/diet).
