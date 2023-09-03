@@ -1,0 +1,23 @@
+# Vitamins:
+VITA_RE: 625 ug
+VITA_RAE: 625 ug
+THIA: 1 mg    # B1
+RIBF: 1.1 mg  # B2
+NIA: 12 mg    # B3
+VITB6: 1.1 mg
+FOL: 320 ug   # B9
+VITB12: 2.0 ug
+VITC: 75 mg
+VITD: 10 ug
+VITE: 15 mg
+# Minerals:
+CA: 800 mg
+CU: 0.7 mg
+ID: 95 ug
+FE: 6 mg
+MG: 330 mg
+P: 580 mg
+SE: 45 ug
+ZN: 9.4 mg
+K: 3400 mg
+NA: 2300 mg

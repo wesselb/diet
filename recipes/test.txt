@@ -1,0 +1,29 @@
+units:
+  avo: 150 g
+  bacon: 15 g
+  ei: 100 g
+  el: 10 g
+  tomaat: 75 g
+Zaterdag:
+  ontbijt en lunch:
+  - volle kwark | 600 g
+  - Chocolade extra puur | 100 g
+  - macademia noten | 70 g
+  avondeten:
+  - avocado | 2 avo
+  - ei gekookt | 4 ei
+  - bacon | 5 bacon
+  - olijfolie | 1.5 el
+  - Tomaat rauw gem | 2 tomaat
+  - ijsbergsla | 100 g
+  - pecan nuts | 25 g
+  - smoked salmon | 100 g
+  - zeezout | 2 g
+Zondag:
+  ontbijt:
+  - volle kwark | 400g
+  - zwarte bessen | 20 g
+  lunch:
+  - ei gebakken | 2 ei
+  - bacon | 2 bacon
+  - zeezout | 0.25 g
