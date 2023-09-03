@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter &#8212; Diet</title>
+    <title>Basic Use &#8212; Diet</title>
   
   
   
@@ -61,7 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'basic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Application Programming Interface" href="api.html" />
@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">Application Programming Interface</a></li>
 </ul>
 
@@ -230,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/wesselb/diet/issues/new?title=Issue%20on%20page%20%2Fchapter.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/wesselb/diet/issues/new?title=Issue%20on%20page%20%2Fbasic.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -260,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/chapter.md" target="_blank"
+      <li><a href="_sources/basic.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +329,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -340,11 +342,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter</h1>
+    <h1>Basic Use</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-of-recipes">Specification of Recipes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-daily-average-nutrients">Compute the Daily Average Nutrients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-a-recipe-file">Validate A Recipe File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-an-overview-of-all-nutrients">Show an Overview of All Nutrients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-an-ingredient">Search For an Ingredient</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -354,9 +368,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="chapter">
-<h1>Chapter<a class="headerlink" href="#chapter" title="Permalink to this heading">#</a></h1>
-<p>Content!</p>
+  <section id="basic-use">
+<h1>Basic Use<a class="headerlink" href="#basic-use" title="Permalink to this heading">#</a></h1>
+<section id="specification-of-recipes">
+<h2>Specification of Recipes<a class="headerlink" href="#specification-of-recipes" title="Permalink to this heading">#</a></h2>
+<p>An example of a recipe file is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">units</span><span class="p">:</span>
+  <span class="n">avo</span><span class="p">:</span> <span class="mi">150</span> <span class="n">g</span>
+  <span class="n">egg</span><span class="p">:</span> <span class="mi">100</span> <span class="n">g</span>
+  <span class="n">tomato</span><span class="p">:</span> <span class="mi">75</span> <span class="n">g</span>
+
+<span class="n">Sat</span><span class="p">:</span>
+  <span class="n">dinner</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">avocado</span> <span class="o">|</span> <span class="mi">2</span> <span class="n">avo</span>
+  <span class="o">-</span> <span class="n">egg</span> <span class="n">boiled</span> <span class="o">|</span> <span class="mi">4</span> <span class="n">egg</span>
+  <span class="o">-</span> <span class="n">tomato</span> <span class="n">raw</span> <span class="o">|</span> <span class="mi">2</span> <span class="n">tomato</span>
+  <span class="o">-</span> <span class="n">sea</span> <span class="n">salt</span> <span class="o">|</span> <span class="mf">0.25</span> <span class="n">g</span>
+</pre></div>
+</div>
+<p>You can add more days and more meals per day.</p>
+</section>
+<section id="compute-the-daily-average-nutrients">
+<h2>Compute the Daily Average Nutrients<a class="headerlink" href="#compute-the-daily-average-nutrients" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/compute.py<span class="w"> </span>recipes/test.txt
+</pre></div>
+</div>
+<p>This sets all missing nutritional values to zero. If you want to instead only show the values which are know with certainty, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/compute.py<span class="w"> </span>recipes/test.txt<span class="w"> </span>--ignore-missing
+</pre></div>
+</div>
+</section>
+<section id="validate-a-recipe-file">
+<h2>Validate A Recipe File<a class="headerlink" href="#validate-a-recipe-file" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/validate.py<span class="w"> </span>recipes/test.txt
+</pre></div>
+</div>
+</section>
+<section id="show-an-overview-of-all-nutrients">
+<h2>Show an Overview of All Nutrients<a class="headerlink" href="#show-an-overview-of-all-nutrients" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/nutrients_overview.py
+</pre></div>
+</div>
+</section>
+<section id="search-for-an-ingredient">
+<h2>Search For an Ingredient<a class="headerlink" href="#search-for-an-ingredient" title="Permalink to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/search.py
+</pre></div>
+</div>
+<p>To launch an interactive session, leave the argument empty:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>scripts/search.py<span class="w"> </span>avocado
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -417,6 +480,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specification-of-recipes">Specification of Recipes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-daily-average-nutrients">Compute the Daily Average Nutrients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-a-recipe-file">Validate A Recipe File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#show-an-overview-of-all-nutrients">Show an Overview of All Nutrients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-for-an-ingredient">Search For an Ingredient</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

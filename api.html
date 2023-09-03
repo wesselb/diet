@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Chapter" href="chapter.html" />
+    <link rel="prev" title="Basic Use" href="basic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapter.html">Chapter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Use</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Application Programming Interface</a></li>
 </ul>
 
@@ -351,7 +351,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.core">Core</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.io">IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.quantity">Quantity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.util">Util</a></li>
 </ul>
             </nav>
         </div>
@@ -365,12 +368,167 @@ document.write(`
                   
   <section id="application-programming-interface">
 <h1>Application Programming Interface<a class="headerlink" href="#application-programming-interface" title="Permalink to this heading">#</a></h1>
-<section id="module-diet.core">
-<span id="core"></span><h2>Core<a class="headerlink" href="#module-diet.core" title="Permalink to this heading">#</a></h2>
+<section id="module-diet.data">
+<span id="data"></span><h2>Data<a class="headerlink" href="#module-diet.data" title="Permalink to this heading">#</a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="diet.core.say_hi">
-<span class="sig-prename descclassname"><span class="pre">diet.core.</span></span><span class="sig-name descname"><span class="pre">say_hi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/core.html#say_hi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.core.say_hi" title="Permalink to this definition">#</a></dt>
-<dd><p>Say hi to the world.</p>
+<dt class="sig sig-object py" id="diet.data.find_ingredient">
+<span class="sig-prename descclassname"><span class="pre">diet.data.</span></span><span class="sig-name descname"><span class="pre">find_ingredient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/data.html#find_ingredient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.data.find_ingredient" title="Permalink to this definition">#</a></dt>
+<dd><p>Find an ingredient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>query</strong> (<em>str</em><em>, </em><em>optional</em>) – Query. Do not specify to launch an interactive search.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ingredient information.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">diet.data.</span></span><span class="sig-name descname"><span class="pre">find_ingredient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/data.html#find_ingredient"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="diet.data.nutrients">
+<span class="sig-prename descclassname"><span class="pre">diet.data.</span></span><span class="sig-name descname"><span class="pre">nutrients</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'ALC':</span> <span class="pre">'Alcohol</span> <span class="pre">total',</span> <span class="pre">'ASH':</span> <span class="pre">'Ash',</span> <span class="pre">'CA':</span> <span class="pre">'Calcium',</span> <span class="pre">'CARTA':</span> <span class="pre">'Alfa-carotene',</span> <span class="pre">'CARTBTOT':</span> <span class="pre">'Beta-carotene',</span> <span class="pre">'CHO':</span> <span class="pre">'Carbohydrate</span> <span class="pre">available',</span> <span class="pre">'CHOCAL':</span> <span class="pre">'Cholecalciferol</span> <span class="pre">(Vit</span> <span class="pre">D3)',</span> <span class="pre">'CHOCALOH':</span> <span class="pre">'25-hydroxycholecalciferol</span> <span class="pre">(25OHVitD3)',</span> <span class="pre">'CHORL':</span> <span class="pre">'Cholesterol',</span> <span class="pre">'CRYPXB':</span> <span class="pre">'Beta-cryptoxanthin',</span> <span class="pre">'CU':</span> <span class="pre">'Copper',</span> <span class="pre">'ENERCC':</span> <span class="pre">'Energy</span> <span class="pre">kcal',</span> <span class="pre">'ENERCJ':</span> <span class="pre">'Energy</span> <span class="pre">kJ',</span> <span class="pre">'F10:0':</span> <span class="pre">'C10:0',</span> <span class="pre">'F10:1CIS':</span> <span class="pre">'C10:1</span> <span class="pre">cis',</span> <span class="pre">'F10:1TRS':</span> <span class="pre">'C10:1</span> <span class="pre">trans',</span> <span class="pre">'F11:0':</span> <span class="pre">'C11:0',</span> <span class="pre">'F12:0':</span> <span class="pre">'C12:0',</span> <span class="pre">'F12:1CIS':</span> <span class="pre">'C12:1</span> <span class="pre">cis',</span> <span class="pre">'F12:1TRS':</span> <span class="pre">'C12:1</span> <span class="pre">trans',</span> <span class="pre">'F13:0':</span> <span class="pre">'C13:0',</span> <span class="pre">'F14:0':</span> <span class="pre">'C14:0',</span> <span class="pre">'F14:1CIS':</span> <span class="pre">'C14:1</span> <span class="pre">cis',</span> <span class="pre">'F14:1TRS':</span> <span class="pre">'C14:1</span> <span class="pre">trans',</span> <span class="pre">'F15:0':</span> <span class="pre">'C15:0',</span> <span class="pre">'F16:0':</span> <span class="pre">'C16:0',</span> <span class="pre">'F16:1CIS':</span> <span class="pre">'C16:1</span> <span class="pre">cis',</span> <span class="pre">'F16:1TRS':</span> <span class="pre">'C16:1</span> <span class="pre">trans',</span> <span class="pre">'F17:0':</span> <span class="pre">'C17:0',</span> <span class="pre">'F18:0':</span> <span class="pre">'C18:0',</span> <span class="pre">'F18:1CIS':</span> <span class="pre">'C18:1</span> <span class="pre">cis',</span> <span class="pre">'F18:1TRS':</span> <span class="pre">'C18:1</span> <span class="pre">total</span> <span class="pre">trans',</span> <span class="pre">'F18:2CN6':</span> <span class="pre">'C18:2</span> <span class="pre">n-6</span> <span class="pre">(linoleic</span> <span class="pre">acid)',</span> <span class="pre">'F18:2CN9':</span> <span class="pre">'C18:2</span> <span class="pre">n-9</span> <span class="pre">cis',</span> <span class="pre">'F18:2CT':</span> <span class="pre">'C18:2</span> <span class="pre">cis</span> <span class="pre">trans',</span> <span class="pre">'F18:2R':</span> <span class="pre">'C18:2</span> <span class="pre">remainder',</span> <span class="pre">'F18:2TC':</span> <span class="pre">'C18:2</span> <span class="pre">trans</span> <span class="pre">cis',</span> <span class="pre">'F18:2TTN6':</span> <span class="pre">'C18:2</span> <span class="pre">n-6</span> <span class="pre">trans',</span> <span class="pre">'F18:3CN3':</span> <span class="pre">'C18:3</span> <span class="pre">n-3</span> <span class="pre">cis</span> <span class="pre">(ALA)',</span> <span class="pre">'F18:3CN6':</span> <span class="pre">'C18:3</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F18:3TTTN3':</span> <span class="pre">'C18:3</span> <span class="pre">n-3</span> <span class="pre">trans',</span> <span class="pre">'F18:4CN3':</span> <span class="pre">'C18:4</span> <span class="pre">n-3</span> <span class="pre">cis',</span> <span class="pre">'F19:0':</span> <span class="pre">'C19:0',</span> <span class="pre">'F20:0':</span> <span class="pre">'C20:0',</span> <span class="pre">'F20:1CIS':</span> <span class="pre">'C20:1</span> <span class="pre">cis',</span> <span class="pre">'F20:1TRS':</span> <span class="pre">'C20:1</span> <span class="pre">trans',</span> <span class="pre">'F20:2CN6':</span> <span class="pre">'C20:2</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F20:2TT':</span> <span class="pre">'C20:2</span> <span class="pre">n-6</span> <span class="pre">trans',</span> <span class="pre">'F20:3CN3':</span> <span class="pre">'C20:3</span> <span class="pre">n-3</span> <span class="pre">cis',</span> <span class="pre">'F20:3CN6':</span> <span class="pre">'C20:3</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F20:3CN9':</span> <span class="pre">'C20:3</span> <span class="pre">n-9</span> <span class="pre">cis',</span> <span class="pre">'F20:4CN3':</span> <span class="pre">'C20:4</span> <span class="pre">n-3</span> <span class="pre">cis',</span> <span class="pre">'F20:4CN6':</span> <span class="pre">'C20:4</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F20:5CN3':</span> <span class="pre">'C20:5</span> <span class="pre">n-3</span> <span class="pre">cis</span> <span class="pre">(EPA)',</span> <span class="pre">'F21:0':</span> <span class="pre">'C21:0',</span> <span class="pre">'F21:5CN3':</span> <span class="pre">'C21:5</span> <span class="pre">n-3</span> <span class="pre">all-cis',</span> <span class="pre">'F22:0':</span> <span class="pre">'C22:0',</span> <span class="pre">'F22:1CIS':</span> <span class="pre">'C22:1</span> <span class="pre">cis',</span> <span class="pre">'F22:1TRS':</span> <span class="pre">'C22:1</span> <span class="pre">trans',</span> <span class="pre">'F22:2CN3':</span> <span class="pre">'C22:2</span> <span class="pre">n-3</span> <span class="pre">cis',</span> <span class="pre">'F22:2CN6':</span> <span class="pre">'C22:2</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F22:3CN3':</span> <span class="pre">'C22:3</span> <span class="pre">n-3</span> <span class="pre">cis',</span> <span class="pre">'F22:4CN6':</span> <span class="pre">'C22:4</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F22:5CN3':</span> <span class="pre">'C22:5</span> <span class="pre">n-3</span> <span class="pre">cis</span> <span class="pre">(DPA)',</span> <span class="pre">'F22:5CN6':</span> <span class="pre">'C22:5</span> <span class="pre">n-6</span> <span class="pre">cis',</span> <span class="pre">'F22:6CN3':</span> <span class="pre">'C22:6</span> <span class="pre">n-3</span> <span class="pre">cis</span> <span class="pre">(DHA)',</span> <span class="pre">'F23:0':</span> <span class="pre">'C23:0',</span> <span class="pre">'F24:0':</span> <span class="pre">'C24:0',</span> <span class="pre">'F24:1CIS':</span> <span class="pre">'C24:1</span> <span class="pre">cis',</span> <span class="pre">'F24:1TRS':</span> <span class="pre">'C24:1</span> <span class="pre">trans',</span> <span class="pre">'F24:2CN6':</span> <span class="pre">'C24:2</span> <span class="pre">n-6</span> <span class="pre">ciscis',</span> <span class="pre">'F25:0':</span> <span class="pre">'C25:0',</span> <span class="pre">'F26:0':</span> <span class="pre">'C26:0',</span> <span class="pre">'F4:0':</span> <span class="pre">'C4:0',</span> <span class="pre">'F6:0':</span> <span class="pre">'C6:0',</span> <span class="pre">'F8:0':</span> <span class="pre">'C8:0',</span> <span class="pre">'FACID':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">total',</span> <span class="pre">'FAMSCIS':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">monounsaturated</span> <span class="pre">cis</span> <span class="pre">total',</span> <span class="pre">'FAMSCXR':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">monounsaturated</span> <span class="pre">cis</span> <span class="pre">remainder',</span> <span class="pre">'FAMSTXR':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">monounsaturated</span> <span class="pre">trans</span> <span class="pre">remainder',</span> <span class="pre">'FAPU':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">total</span> <span class="pre">polyunsaturated</span> <span class="pre">total',</span> <span class="pre">'FAPUN3':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">n-3</span> <span class="pre">polyunsaturated</span> <span class="pre">cis',</span> <span class="pre">'FAPUN6':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">n-6</span> <span class="pre">polyunsaturated</span> <span class="pre">cis',</span> <span class="pre">'FAPUXR':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">polyunsaturated</span> <span class="pre">c+t</span> <span class="pre">remainder',</span> <span class="pre">'FASAT':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">saturated</span> <span class="pre">total',</span> <span class="pre">'FASATXR':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">saturated</span> <span class="pre">remainder',</span> <span class="pre">'FAT':</span> <span class="pre">'Fat</span> <span class="pre">total',</span> <span class="pre">'FATRS':</span> <span class="pre">'Fatty</span> <span class="pre">acids</span> <span class="pre">trans</span> <span class="pre">total',</span> <span class="pre">'FAUN':</span> <span class="pre">'Fatty</span> <span class="pre">acid</span> <span class="pre">unidentified',</span> <span class="pre">'FE':</span> <span class="pre">'Iron</span> <span class="pre">total',</span> <span class="pre">'FIBT':</span> <span class="pre">'Fibre</span> <span class="pre">dietary</span> <span class="pre">total',</span> <span class="pre">'FOL':</span> <span class="pre">'Dietary</span> <span class="pre">folate</span> <span class="pre">equivalents',</span> <span class="pre">'FOLAC':</span> <span class="pre">'Folic</span> <span class="pre">acid</span> <span class="pre">synthetic',</span> <span class="pre">'FOLFD':</span> <span class="pre">'Folate</span> <span class="pre">food',</span> <span class="pre">'HAEM':</span> <span class="pre">'Iron</span> <span class="pre">haem',</span> <span class="pre">'ID':</span> <span class="pre">'Iodine',</span> <span class="pre">'K':</span> <span class="pre">'Potassium',</span> <span class="pre">'LUTN':</span> <span class="pre">'Lutein',</span> <span class="pre">'LYCPN':</span> <span class="pre">'Lycopene',</span> <span class="pre">'MG':</span> <span class="pre">'Magnesium',</span> <span class="pre">'NA':</span> <span class="pre">'Sodium',</span> <span class="pre">'NHAEM':</span> <span class="pre">'Iron</span> <span class="pre">non-haem',</span> <span class="pre">'NIA':</span> <span class="pre">'Niacin</span> <span class="pre">(Vit</span> <span class="pre">B3)',</span> <span class="pre">'NT':</span> <span class="pre">'Nitrogen</span> <span class="pre">total',</span> <span class="pre">'OA':</span> <span class="pre">'Organic</span> <span class="pre">acids</span> <span class="pre">total',</span> <span class="pre">'P':</span> <span class="pre">'Phosphorus',</span> <span class="pre">'POLYL':</span> <span class="pre">'Polyols</span> <span class="pre">total',</span> <span class="pre">'PROT':</span> <span class="pre">'Protein</span> <span class="pre">total',</span> <span class="pre">'PROTAN':</span> <span class="pre">'Protein</span> <span class="pre">animal',</span> <span class="pre">'PROTPL':</span> <span class="pre">'Protein</span> <span class="pre">plant',</span> <span class="pre">'RETOL':</span> <span class="pre">'Retinol',</span> <span class="pre">'RIBF':</span> <span class="pre">'Riboflavin</span> <span class="pre">(Vit</span> <span class="pre">B2)',</span> <span class="pre">'SE':</span> <span class="pre">'Selenium</span> <span class="pre">total',</span> <span class="pre">'STARCH':</span> <span class="pre">'Starch</span> <span class="pre">total',</span> <span class="pre">'SUGAR':</span> <span class="pre">'Sugars</span> <span class="pre">total',</span> <span class="pre">'THIA':</span> <span class="pre">'Thiamin</span> <span class="pre">(Vit</span> <span class="pre">B1)',</span> <span class="pre">'TOCPHA':</span> <span class="pre">'Alpha-tocopherol',</span> <span class="pre">'TOCPHB':</span> <span class="pre">'Beta-tocopherol',</span> <span class="pre">'TOCPHD':</span> <span class="pre">'Delta-tocopherol',</span> <span class="pre">'TOCPHG':</span> <span class="pre">'Gamma-tocopherol',</span> <span class="pre">'VITA_RAE':</span> <span class="pre">'Retinol</span> <span class="pre">activity</span> <span class="pre">equialents</span> <span class="pre">(RAE)',</span> <span class="pre">'VITA_RE':</span> <span class="pre">'Retinol</span> <span class="pre">equivalents</span> <span class="pre">(RE)',</span> <span class="pre">'VITB12':</span> <span class="pre">'Cobalamin</span> <span class="pre">(Vit</span> <span class="pre">B12)',</span> <span class="pre">'VITB6':</span> <span class="pre">'Pyridoxin</span> <span class="pre">(Vit</span> <span class="pre">B6)',</span> <span class="pre">'VITC':</span> <span class="pre">'Ascorbic</span> <span class="pre">acid</span> <span class="pre">(Vit</span> <span class="pre">C)',</span> <span class="pre">'VITD':</span> <span class="pre">'Vitamin</span> <span class="pre">D</span> <span class="pre">total',</span> <span class="pre">'VITE':</span> <span class="pre">'Vitamin</span> <span class="pre">E</span> <span class="pre">total',</span> <span class="pre">'VITK':</span> <span class="pre">'Vitamin</span> <span class="pre">K</span> <span class="pre">total',</span> <span class="pre">'VITK1':</span> <span class="pre">'Vitamin</span> <span class="pre">K1',</span> <span class="pre">'VITK2':</span> <span class="pre">'Vitamin</span> <span class="pre">K2',</span> <span class="pre">'WATER':</span> <span class="pre">'Water</span> <span class="pre">total',</span> <span class="pre">'ZEA':</span> <span class="pre">'Zeaxanthin',</span> <span class="pre">'ZN':</span> <span class="pre">'Zinc'}</span></em><a class="headerlink" href="#diet.data.nutrients" title="Permalink to this definition">#</a></dt>
+<dd><p>Map nutrient abbreviations to descriptive names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="diet.data.rdi">
+<span class="sig-prename descclassname"><span class="pre">diet.data.</span></span><span class="sig-name descname"><span class="pre">rdi</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'CA':</span> <span class="pre">800.0</span> <span class="pre">mg,</span> <span class="pre">'CU':</span> <span class="pre">0.7</span> <span class="pre">mg,</span> <span class="pre">'FE':</span> <span class="pre">6.0</span> <span class="pre">mg,</span> <span class="pre">'FOL':</span> <span class="pre">320.0</span> <span class="pre">ug,</span> <span class="pre">'ID':</span> <span class="pre">95.0</span> <span class="pre">ug,</span> <span class="pre">'K':</span> <span class="pre">3400.0</span> <span class="pre">mg,</span> <span class="pre">'MG':</span> <span class="pre">330.0</span> <span class="pre">mg,</span> <span class="pre">'NA':</span> <span class="pre">2300.0</span> <span class="pre">mg,</span> <span class="pre">'NIA':</span> <span class="pre">12.0</span> <span class="pre">mg,</span> <span class="pre">'P':</span> <span class="pre">580.0</span> <span class="pre">mg,</span> <span class="pre">'RIBF':</span> <span class="pre">1.1</span> <span class="pre">mg,</span> <span class="pre">'SE':</span> <span class="pre">45.0</span> <span class="pre">ug,</span> <span class="pre">'THIA':</span> <span class="pre">1.0</span> <span class="pre">mg,</span> <span class="pre">'VITA_RAE':</span> <span class="pre">625.0</span> <span class="pre">ug,</span> <span class="pre">'VITA_RE':</span> <span class="pre">625.0</span> <span class="pre">ug,</span> <span class="pre">'VITB12':</span> <span class="pre">2.0</span> <span class="pre">ug,</span> <span class="pre">'VITB6':</span> <span class="pre">1.1</span> <span class="pre">mg,</span> <span class="pre">'VITC':</span> <span class="pre">75.0</span> <span class="pre">mg,</span> <span class="pre">'VITD':</span> <span class="pre">10.0</span> <span class="pre">ug,</span> <span class="pre">'VITE':</span> <span class="pre">15.0</span> <span class="pre">mg,</span> <span class="pre">'ZN':</span> <span class="pre">9.4</span> <span class="pre">mg}</span></em><a class="headerlink" href="#diet.data.rdi" title="Permalink to this definition">#</a></dt>
+<dd><p>RDIs per nutrient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, <a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">diet.quantity.Quantity</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-diet.io">
+<span id="io"></span><h2>IO<a class="headerlink" href="#module-diet.io" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="diet.io.load_file">
+<span class="sig-prename descclassname"><span class="pre">diet.io.</span></span><span class="sig-name descname"><span class="pre">load_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/io.html#load_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.io.load_file" title="Permalink to this definition">#</a></dt>
+<dd><p>Load recipe file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) – Path to file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Recipes by day.
+dict: Metadata.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-diet.quantity">
+<span id="quantity"></span><h2>Quantity<a class="headerlink" href="#module-diet.quantity" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diet.quantity.Quantity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diet.quantity.</span></span><span class="sig-name descname"><span class="pre">Quantity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/quantity.html#Quantity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.quantity.Quantity" title="Permalink to this definition">#</a></dt>
+<dd><p>A quantity with a unit.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diet.quantity.Quantity.number">
+<span class="sig-name descname"><span class="pre">number</span></span><a class="headerlink" href="#diet.quantity.Quantity.number" title="Permalink to this definition">#</a></dt>
+<dd><p>Number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diet.quantity.Quantity.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><a class="headerlink" href="#diet.quantity.Quantity.unit" title="Permalink to this definition">#</a></dt>
+<dd><p>Unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diet.quantity.Quantity.parse">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><span class="pre">Quantity</span></a></span></span><a class="reference internal" href="_modules/diet/quantity.html#Quantity.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.quantity.Quantity.parse" title="Permalink to this definition">#</a></dt>
+<dd><p>Parse a string and construct the corresponding quantity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (str or <code class="xref py py-class docutils literal notranslate"><span class="pre">numbers.Number</span></code>) – Specification of quantity.</p></li>
+<li><p><strong>unit</strong> (<em>str</em><em>, </em><em>optional</em>) – Unit.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Specified quantity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a></p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numbers.Number</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><span class="pre">diet.quantity.Quantity</span></a></span></span><a class="reference internal" href="_modules/diet/quantity.html#Quantity.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diet.quantity.Quantity.simplify_unit">
+<span class="sig-name descname"><span class="pre">simplify_unit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><span class="pre">Quantity</span></a></span></span><a class="reference internal" href="_modules/diet/quantity.html#Quantity.simplify_unit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.quantity.Quantity.simplify_unit" title="Permalink to this definition">#</a></dt>
+<dd><p>Simplify the unit of the quantity according to <a class="reference internal" href="#diet.quantity.units" title="diet.quantity.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Same quantity with simplified unit.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="diet.quantity.units">
+<span class="sig-prename descclassname"><span class="pre">diet.quantity.</span></span><span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#diet.quantity.units" title="Permalink to this definition">#</a></dt>
+<dd><p>Simply a unit into a quantity with another unit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict[str, <a class="reference internal" href="#diet.quantity.Quantity" title="diet.quantity.Quantity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Quantity</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-diet.util">
+<span id="util"></span><h2>Util<a class="headerlink" href="#module-diet.util" title="Permalink to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="diet.util.print_table">
+<span class="sig-prename descclassname"><span class="pre">diet.util.</span></span><span class="sig-name descname"><span class="pre">print_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diet/util.html#print_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diet.util.print_table" title="Permalink to this definition">#</a></dt>
+<dd><p>Print a table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Iterable</em><em>[</em><em>tuple</em><em>]</em>) – An iterable over rows, where every row is a tuple
+containing the values for all columns.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -408,12 +566,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="chapter.html"
+       href="basic.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter</p>
+        <p class="prev-next-title">Basic Use</p>
       </div>
     </a>
 </div></div>
@@ -434,7 +592,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.core">Core</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.io">IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.quantity">Quantity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-diet.util">Util</a></li>
 </ul>
   </nav></div>
 

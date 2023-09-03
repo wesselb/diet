@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diet.core &#8212; Diet</title>
+    <title>diet.io &#8212; Diet</title>
   
   
   
@@ -60,7 +60,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diet/core';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diet/io';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -154,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../chapter.html">Chapter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basic.html">Basic Use</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api.html">Application Programming Interface</a></li>
 </ul>
 
@@ -227,7 +227,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/wesselb/diet/issues/new?title=Issue%20on%20page%20%2F_modules/diet/core.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/wesselb/diet/issues/new?title=Issue%20on%20page%20%2F_modules/diet/io.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,17 +303,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <h1>Source code for diet.core</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">logging</span>
+  <h1>Source code for diet.io</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">yaml</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;say_hi&quot;</span><span class="p">]</span>
+<span class="kn">from</span> <span class="nn">diet.quantity</span> <span class="kn">import</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">units</span>
 
-<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;load_file&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="say_hi"><a class="viewcode-back" href="../../api.html#diet.core.say_hi">[docs]</a><span class="k">def</span> <span class="nf">say_hi</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Say hi to the world.&quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi!&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="load_file"><a class="viewcode-back" href="../../api.html#diet.io.load_file">[docs]</a><span class="k">def</span> <span class="nf">load_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load recipe file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Recipes by day.</span>
+<span class="sd">        dict: Metadata.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="s2">&quot;units&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]:</span>
+            <span class="n">units</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">Quantity</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">][</span><span class="n">k</span><span class="p">])</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span></div>
 </pre></div>
 
                 </article>
